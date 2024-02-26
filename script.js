@@ -3,6 +3,7 @@ const userAnswerInput = document.getElementById("userAnswer");
 const phoneticsOutput = document.getElementById("phoneticsOutput");
 const submitBtn = document.getElementById("submitBTN");
 let dictionaryWord = "";
+let score
 
 //On click/ on DOM load - initiate function which generates random word
 document.addEventListener("DOMContentLoaded", randoWord);
@@ -65,6 +66,7 @@ function checkUserAnswer() {
   if (userAnswer.toLowerCase() === dictionaryWord) {
     alert("correct");
     userAnswerInput.value = "";
+    score++
     randoWord();
   } else {
     alert("wrong");
