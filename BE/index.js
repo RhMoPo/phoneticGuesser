@@ -21,13 +21,14 @@ app.get("/test", (req, res) => {
   res.json(data);
 });
 
+
 // Route handler for fetching a random word
 app.get("/random-word", async (req, res) => {
   const fetchRandomWordAndDictionary = async () => {
     try {
       // Fetch a random word from the external API
       const randomWordResponse = await fetch(
-        "https://random-word-api.herokuapp.com/word?length=6"
+        "https://random-word-api.herokuapp.com/word?length=3"
       );
       if (!randomWordResponse.ok) {
         throw new Error("Failed to fetch random word");
@@ -66,3 +67,4 @@ app.get("/random-word", async (req, res) => {
   // Initial call to fetch random word and dictionary entry
   fetchRandomWordAndDictionary();
 });
+

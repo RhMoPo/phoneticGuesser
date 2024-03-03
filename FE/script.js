@@ -8,6 +8,13 @@ let score;
 
 document.addEventListener("DOMContentLoaded", getRandomWordFromBackend);
 submitBtn.addEventListener("click", checkUserAnswer);
+userAnswerInput.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    checkUserAnswer();
+  }
+});
+
+
 
 // Make a request to the backend endpoint for a random word
 async function getRandomWordFromBackend() {
@@ -44,11 +51,11 @@ async function getRandomWordFromBackend() {
 
 function checkUserAnswer() {
   let userAnswer = userAnswerInput.value;
-  if (userAnswer.toLowerCase() === wordFromDictionary) {
+  if (userAnswer.toLowerCase() === word) {
     alert("correct");
     userAnswerInput.value = "";
     score++;
-    getRandomWordAndPhonetic();
+    getRandomWordFromBackend();
   } else {
     alert("wrong");
   }
